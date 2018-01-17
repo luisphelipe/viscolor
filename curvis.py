@@ -14,6 +14,7 @@ def load_color_scheme():
     return colors
 
 def main(stdscr):
+    curses.curs_set(False)
     colors = load_color_scheme()
     stdscr.clear()
 
