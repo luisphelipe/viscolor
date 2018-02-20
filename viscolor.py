@@ -5,7 +5,6 @@ import subprocess
 color_path = "/home/automata/.cache/wal/colors"
 
 html_top = "<!DOCTYPE html>\n\
-\n\
 <html>\n\
     <head>\n\
 	<meta charset=\"UTF-8\">\n\
@@ -44,9 +43,11 @@ def load_color_scheme():
 def main():
     color_scheme = load_color_scheme()
     n = 0
+    """
     for c in color_scheme:
         print("{:02d} {}".format(n, c))
         n += 1
+    """
 
     template = html_top
     for i in range(len(color_scheme)):
