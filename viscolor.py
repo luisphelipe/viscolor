@@ -3,6 +3,7 @@ import subprocess
 
 
 color_path = "/home/automata/.cache/wal/colors"
+file_path = "/home/automata/.cache/wal/wal"
 
 html_top = "<!DOCTYPE html>\n\
 <html>\n\
@@ -41,6 +42,9 @@ def load_color_scheme():
     return colors
 
 def main():
+    with open(file_path, 'r') as ffile:
+        filename = (ffile.read().split('/')[-1]).split('.')[0] + ".html"
+
     color_scheme = load_color_scheme()
     n = 0
     """
@@ -55,10 +59,10 @@ def main():
 
     template += html_bot
 
-    with open("htmlvisualizer.html", 'w') as htmlfile:
+    with open(filename, 'w') as htmlfile:
         htmlfile.write(template)
 
-    subprocess.call(["chromium", "htmlvisualizer.html"])
+    subprocess.call(["chromium", filename])
 
 
 if __name__ == "__main__": main()
